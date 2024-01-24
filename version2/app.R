@@ -50,8 +50,8 @@ ui <- navbarPage("Fly Sleep Single Cell", theme = shinytheme("flatly"),
                             
                             img(src='tsne.png', width = 750, height = 600, style = "margin-bottom: 50px; margin-top: 50px"),
                             
-                            div("Citation: the associated preprint is available", style = "font-size:18px",
-                                tags$a(href="https://www.biorxiv.org/content/10.1101/2023.03.22.533150v1", "here.", style = "font-size:18px")),
+                            div("Citation: Dopp, J. et al. Single-cell transcriptomics reveals that glial cells integrate homeostatic and circadian processes to drive sleep–wake cycles. Nat Neurosci (2024).", style = "font-size:18px",
+                                tags$a(href="https://doi.org/10.1038/s41593-023-01549-4", " https://doi.org/10.1038/s41593-023-01549-4", style = "font-size:18px")),
                             
                             div("This app was built by Joana Dopp. If you have questions/comments, please", style = "font-size:18px",
                                 tags$a(href="mailto:joana.dopp@kuleuven.be", "get in touch.", style = "font-size:18px")),
@@ -246,7 +246,7 @@ server <- function(input, output, session) {
   })
   
   observe({
-    genes_filtered <- gene3[gene3 %in% unique(sleep_drive_long$gene[sleep_drive_long$cluster %in% input$cell_type3])]
+    genes_filtered <- gene3[gene3 %in% unique(sleep_drive_long$gene[sleep_drive_long$cluster %in% input$cell_type4])]
     updateSelectizeInput(session, "gene3", choices = genes_filtered, server = FALSE)
   })
   
